@@ -6,7 +6,7 @@ import java.util.List;
 public class FilterExampleEx1 {
 
     // 고차 함수, 함수를 인자로 받아서 조건에 맞는 요소만 뽑아내는 filter
-    public static List<Integer> filter(List<Integer> list, MyPerdicate perdicate) {
+    public static List<Integer> filter(List<Integer> list, MyPredicate perdicate) {
         List<Integer> result = new ArrayList<>();
         for (Integer val : list) {
             if (perdicate.test(val)) {
@@ -22,7 +22,7 @@ public class FilterExampleEx1 {
         System.out.println("원본 리스트: " + numbers);
 
         // 1. 음수(negative)만 뽑아내기
-        List<Integer> negatives = filter(numbers, new MyPerdicate() {
+        List<Integer> negatives = filter(numbers, new MyPredicate() {
             @Override
             public boolean test(int value) {
                 return value < 0;
@@ -31,7 +31,7 @@ public class FilterExampleEx1 {
         System.out.println("음수만: " + negatives);
 
         // 2. 짝수(even)만 뽑아내기
-        List<Integer> evens = filter(numbers, new MyPerdicate() {
+        List<Integer> evens = filter(numbers, new MyPredicate() {
             @Override
             public boolean test(int value) {
                 return value % 2 == 0;

@@ -1,13 +1,13 @@
-package lambda.ex2;
+package lambda.ex3;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.function.UnaryOperator;
 
-public class javaClass {
+public class MapExample {
 
     // 고차 함수, 함수를 인자로 받아, 리스트의 각 요소를 변환
-    public static List<String> map(List<String> list, StringFunction func) {
+    public static List<String> map(List<String> list, UnaryOperator<String> func) {
 
         ArrayList<String> result = new ArrayList<>();
 
@@ -24,7 +24,7 @@ public class javaClass {
         System.out.println("원본 리스트: " + words);
         
         // 1. 대문자 변환
-        List<String> upperList = map(words, new StringFunction() {
+        List<String> upperList = map(words, new UnaryOperator<String>() {
             @Override
             public String apply(String s) {
                 return s.toUpperCase();
